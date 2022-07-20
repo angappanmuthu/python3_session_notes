@@ -67,8 +67,8 @@ class Waiter(models.Model):
 ```mermaid
 graph TD;
     Place-->Restaurant;
-    Restaurant-->Waiter A;
-    Restaurant-->Waiter B;
-    Restaurant-->Waiter C;
+    Restaurant-->Waiter_A;
+    Restaurant-->Waiter_B;
+    Restaurant-->Waiter_C;
 ```
 
