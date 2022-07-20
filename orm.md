@@ -63,12 +63,47 @@ class Waiter(models.Model):
 ```
 
 
-
 ```mermaid
 graph TD;
     Place-->Restaurant;
     Restaurant-->Waiter_A;
     Restaurant-->Waiter_B;
     Restaurant-->Waiter_C;
+```
+
+
+## __many-to-many Relation__ :
+
+```python
+from django.db import models
+
+class Publication(models.Model):
+    title = models.CharField(max_length=30)
+
+    class Meta:
+        ordering = ['title']
+
+    def __str__(self):
+        return self.title
+
+class Article(models.Model):
+    headline = models.CharField(max_length=100)
+    publications = models.ManyToManyField(Publication)
+
+    class Meta:
+        ordering = ['headline']
+
+    def __str__(self):
+        return self.headline
+```
+
+```mermaid
+graph TD;
+    Publication-->Article;
+    Article-->Publication;
+    Publication-->Article;
+    Article-->Publication;
+    Publication-->Article;
+    Article-->Publication;
 ```
 
